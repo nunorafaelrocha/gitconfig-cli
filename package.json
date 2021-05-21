@@ -1,0 +1,30 @@
+{
+  "name": "gitconfig-cli",
+  "version": "0.1.0",
+  "description": "A small script that helps to configure git, including signed commits with GPG.",
+  "keywords": [
+    "git",
+    "gitconfig",
+    "gpg",
+    "macos",
+    "github",
+    "cli"
+  ],
+  "main": "index.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nunorafaelrocha/gitconfig.git"
+  },
+  "author": "Nuno Rafael Rocha (nunorafaelrocha.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nunorafaelrocha/gitconfig/issues"
+  },
+  "homepage": "https://github.com/nunorafaelrocha/gitconfig#readme",
+  "dependencies": {
+    "zx": "^1.7.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
