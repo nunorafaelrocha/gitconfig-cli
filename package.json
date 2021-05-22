@@ -10,6 +10,9 @@
     "github",
     "cli"
   ],
+  "bin": {
+    "gitconfig-cli": "index.mjs"
+  },
   "main": "index.mjs",
   "repository": {
     "type": "git",
