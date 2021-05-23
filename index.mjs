@@ -1,4 +1,4 @@
-import { $, question } from "zx";
+#!/usr/bin/env zx
 
 const isYes = input => {
   if (
