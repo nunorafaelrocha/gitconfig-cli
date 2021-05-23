@@ -12,7 +12,8 @@ const isYes = input => {
 };
 
 const getNonEmptyAnswer = async text => {
-  const reply = await question(text);
+  await sleep(500);
+  const reply = (await question(text)).toString().trim();
 
   if (reply) {
     return reply;
@@ -80,7 +81,7 @@ const updateLocalGitConfig = async ({
 
   const confirmAndContinue = isYes(
     await getNonEmptyAnswer(
-      `❓ Please confirm that you want to replace ${home}/.gitconfig.local [y/N]`
+      `❓ Please confirm that you want to replace ${home}/.gitconfig.local [y/N] `
     )
   );
 
@@ -136,7 +137,7 @@ const git_authoremail = await getNonEmptyAnswer(
 );
 
 const use_gpg_key = isYes(
-  await getNonEmptyAnswer("Do want to sign your commits with a GPG Key? [y/N]")
+  await getNonEmptyAnswer("Do want to sign your commits with a GPG Key? [y/N] ")
 );
 
 let gpg_key = null;
