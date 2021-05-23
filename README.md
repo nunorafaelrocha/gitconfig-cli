@@ -8,10 +8,28 @@ A small script that helps to configure git, including signed commits with GPG.
 npx zx https://raw.githubusercontent.com/nunorafaelrocha/gitconfig-cli/main/index.mjs
 ```
 
-### 🎟 Requirements
+### 🖥 System Requirements
 
-- node >= 14
+- nodejs >= 14
 - npx
+- GPG (if you want to sign commits)
+
+### 💾 Installing system requirements
+
+**node and npm**
+
+```sh
+brew install n
+n latest
+```
+
+**GPG** 
+
+```
+brew install --cask gpg-suite-no-mail
+```
+
+For more tools see my [dotfiles](https://github.com/nunorafaelrocha/dotfiles)
 
 ## 👮 License
 
