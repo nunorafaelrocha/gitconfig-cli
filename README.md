@@ -10,13 +10,13 @@ npx zx https://raw.githubusercontent.com/nunorafaelrocha/gitconfig-cli/main/inde
 
 ### 🖥 System Requirements
 
-- nodejs >= 14
+- Node.js >= 14
 - npx
 - GPG (if you want to sign commits)
 
 ### 💾 Installing system requirements
 
-**node and npm**
+**Node.js and npx**
 
 ```sh
 brew install n
