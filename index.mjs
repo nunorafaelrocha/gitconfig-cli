@@ -86,7 +86,7 @@ const updateLocalGitConfig = async ({
   );
 
   if (!confirmAndContinue) {
-    return false;
+    throw new error("Aborted");
   }
 
   const local_config = ".gitconfig.local";
@@ -118,7 +118,13 @@ const updateLocalGitConfig = async ({
 
   console.log(`✅ ${home}/.gitconfig.local successfully updated`);
 
-  return true;
+  if (gpg_key) {
+    await $`gpg --armor --export "${gpg_key}" | pbcopy`;
+
+    console.log(
+      `ℹ️ Your public key was copied ✂️ to your clipboard - you can add 📋 it to GitHub in "SSH and GPG Keys" settings`
+    );
+  }
 };
 
 // In verbose mode, the zx prints all executed commands alongside with their outputs.
@@ -157,22 +163,15 @@ if (use_gpg_key) {
   }
 }
 
-const updated = await updateLocalGitConfig({
-  git_authorname,
-  git_authoremail,
-  git_credential,
-  gpg_key
-});
-
-if (updated) {
-  if (gpg_key) {
-    await $`gpg --armor --export "${gpg_key}" | pbcopy`;
-
-    console.log(
-      `ℹ️ Your public key was copied ✂️ to your clipboard - you can add 📋 it to GitHub in "SSH and GPG Keys" settings`
-    );
-  }
-} else {
+try {
+  await updateLocalGitConfig({
+    git_authorname,
+    git_authoremail,
+    git_credential,
+    gpg_key
+  });
+} catch (e) {
+  // Clean up GPG key in case of error.
   if (gpg_key && generate_new_gpg_key) {
     const gpg_key_fingerprint = (
       await $`gpg --with-colons --fingerprint | grep ${gpg_key} | grep "^fpr" | cut -d: -f10`
