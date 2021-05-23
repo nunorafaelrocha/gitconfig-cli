@@ -5,8 +5,13 @@ A small script that helps to configure git, including signed commits with GPG.
 ## 🚀 Usage
 
 ```sh
-npx gitconfig-cli
+npx zx https://raw.githubusercontent.com/nunorafaelrocha/gitconfig-cli/main/index.mjs
 ```
+
+### 🎟 Requirements
+
+- node >= 14
+- npx
 
 ## 👮 License
 
