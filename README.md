@@ -2,6 +2,8 @@
 
 A small script that helps to configure git, including signed commits with GPG.
 
+<img src="preview.png" alt="Script Preview"/>
+
 ## 🚀 Usage
 
 ```sh
@@ -23,7 +25,7 @@ brew install n
 n latest
 ```
 
-**GPG** 
+**GPG**
 
 ```
 brew install --cask gpg-suite-no-mail
