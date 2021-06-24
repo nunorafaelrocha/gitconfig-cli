@@ -135,11 +135,11 @@ const unix_name = (await $`uname`).toString().trim();
 const git_credential = unix_name === "Darwin" ? "osxkeychain" : "cache";
 
 const git_authorname = await getNonEmptyAnswer(
-  "What is your github author name? "
+  "What is your name? "
 );
 
 const git_authoremail = await getNonEmptyAnswer(
-  "What is your github author email? "
+  "What is the email you use on GitHub? "
 );
 
 const use_gpg_key = isYes(
