@@ -108,7 +108,7 @@ const updateLocalGitConfig = async ({
   const local_config_fullpath = `${home}/${local_config}`;
 
   await $`git config -f ${local_config_fullpath} user.name "${git_authorname}"`;
-  await $`git config -f ${local_config_fullpath} user.email "${git_authoremail}"`;
+  await $`git config -f ${local_config_fullpath} user.email ${git_authoremail}`;
   await $`git config -f ${local_config_fullpath} credential.helper "${git_credential}"`;
 
   if (gpg_key) {
