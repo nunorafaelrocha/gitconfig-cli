@@ -81,7 +81,7 @@ const updateLocalGitConfig = async ({
 
   const confirmAndContinue = isYes(
     await getNonEmptyAnswer(
-      `❓ Please confirm that you want to replace ${home}/.gitconfig.local [y/N] `
+      `❓ Please confirm that you want to overwrite ${home}/.gitconfig.local [y/N] `
     )
   );
 
@@ -151,7 +151,7 @@ let generate_new_gpg_key = false;
 
 if (use_gpg_key) {
   generate_new_gpg_key = isYes(
-    await getNonEmptyAnswer("Do want to generate a new GPG Key? [Y/n] ")
+    await getNonEmptyAnswer("Do want to generate a new GPG Key? [y/N] ")
   );
 
   if (generate_new_gpg_key) {
