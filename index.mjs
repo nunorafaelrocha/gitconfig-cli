@@ -130,13 +130,14 @@ const updateLocalGitConfig = async ({
 // In verbose mode, the zx prints all executed commands alongside with their outputs.
 $.verbose = false;
 
+// Override string literal handler: https://github.com/google/zx/issues/144
+$.quote = v => v;
+
 // THE ACTUAL SCRIPT
 const unix_name = (await $`uname`).toString().trim();
 const git_credential = unix_name === "Darwin" ? "osxkeychain" : "cache";
 
-const git_authorname = await getNonEmptyAnswer(
-  "What is your name? "
-);
+const git_authorname = await getNonEmptyAnswer("What is your name? ");
 
 const git_authoremail = await getNonEmptyAnswer(
   "What is the email you use on GitHub? "
